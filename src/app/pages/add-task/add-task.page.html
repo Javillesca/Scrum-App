@@ -1,0 +1,50 @@
+<ion-header [translucent]="true" class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button color="primary"></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button color="primary" (click)="editTitle(tasklist)">
+                <ion-icon name="create"></ion-icon>
+            </ion-button>
+            <ion-button color="primary" (click)="deleteList(tasklist)">
+                <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>{{ tasklist.title }}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-list-header>
+            <ion-label>Puntuación: {{ tasklist.score }}</ion-label>
+        </ion-list-header>
+        <ion-item>
+            <ion-label position="floating">Tarea</ion-label>
+            <ion-input type="text" [(ngModel)]="nameItem"></ion-input>
+        </ion-item>
+        <ion-button expand="block" (click)="addItems()">Agregar</ion-button>
+    </ion-list>
+
+    <ion-list>
+
+        <ion-list-header *ngIf="tasklist.items.length > 0">
+            <ion-label>Pendientes</ion-label>
+        </ion-list-header>
+
+        <ion-item-sliding *ngFor="let task of tasklist.items; let i = index" class="animated fadeInDown">
+            <ion-item>
+                <ion-checkbox slot="start" color="primary" [(ngModel)]="task.completed" (ionChange)="statusChange(task)">
+                </ion-checkbox>
+                <ion-label>{{ task.desc }}</ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+                <ion-item-option (click)="deleteTask(i)" color="danger">
+                    <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+
+</ion-content>

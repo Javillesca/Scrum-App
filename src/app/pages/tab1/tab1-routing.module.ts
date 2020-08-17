@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: Tab1Page,
+  },
+  {
+    path: 'add-task/:listId',
+    loadChildren: () => import('../add-task/add-task.module').then( m => m.AddTaskPageModule)
   }
 ];
 

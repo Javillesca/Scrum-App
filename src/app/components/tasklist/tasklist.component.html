@@ -1,0 +1,11 @@
+<ion-grid>
+    <ion-row>
+        <ion-col size="4" *ngFor="let task of tasksService.tasks | taskStatus : view">
+            <div style="background-color: whitesmoke;" (click)="openTaskList( task )">
+                <h3 style="color: black;">{{ task.title }}</h3>
+                <p style="color: black;">Puntos: {{ task.score }}</p>
+                <p style="color: black;">Tareas: {{ task.items.length }}</p>
+            </div>
+        </ion-col>
+    </ion-row>
+</ion-grid>

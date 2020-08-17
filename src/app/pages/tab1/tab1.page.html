@@ -1,0 +1,18 @@
+<ion-header [translucent]="true" class="ion-no-border">
+    <ion-toolbar color="light">
+        <ion-title>
+            To do
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <app-tasklist [view]="1"></app-tasklist>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="addTask()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+</ion-content>
