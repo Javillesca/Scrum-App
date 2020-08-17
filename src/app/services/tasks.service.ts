@@ -17,16 +17,14 @@ export class TasksService {
     const newList = new TaskList(title, score);
     this.tasks.push(newList);
     this.saveStorage();
-    console.log('createTaskList: ' + JSON.stringify(this.tasks));
     return newList.id;
-
   }
 
   getTaskList( listId: string | number ) {
 
     const id = Number(listId);
 
-    return this.tasks.find( task => task.id === id );
+    return this.tasks.find( task => task.id = id );
   }
 
   saveStorage() {
